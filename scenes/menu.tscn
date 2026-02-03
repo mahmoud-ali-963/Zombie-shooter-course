@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://cduch3ysst75u"]
+
+[ext_resource type="FontFile" uid="uid://cxaxu74h8c0m8" path="res://game assets/art/PlaymegamesReguler-2OOee.ttf" id="1_con2f"]
+[ext_resource type="Script" uid="uid://bl5d4eil7tpdy" path="res://scripts/menu.gd" id="1_mhnvy"]
+[ext_resource type="Texture2D" uid="uid://3eojxwnxojbo" path="res://game assets/art/big_.png" id="2_mhnvy"]
+[ext_resource type="Texture2D" uid="uid://cdrr7sv7gaqi3" path="res://game assets/art/big_pressed.png" id="3_4ytvr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g3eks"]
+font = ExtResource("1_con2f")
+font_size = 106
+
+[sub_resource type="LabelSettings" id="LabelSettings_con2f"]
+font = ExtResource("1_con2f")
+font_size = 64
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mhnvy")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.19215687, 0.22352941, 0.2509804, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 126.0
+offset_right = 871.0
+offset_bottom = 216.0
+text = "My First game"
+label_settings = SubResource("LabelSettings_g3eks")
+
+[node name="Play" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 256.0
+offset_right = 701.0
+offset_bottom = 372.0
+texture_normal = ExtResource("2_mhnvy")
+texture_pressed = ExtResource("3_4ytvr")
+
+[node name="Label" type="Label" parent="Play"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 22.0
+offset_right = 181.0
+offset_bottom = 77.0
+text = "play"
+label_settings = SubResource("LabelSettings_con2f")
+
+[node name="exite" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 449.0
+offset_top = 376.0
+offset_right = 701.0
+offset_bottom = 492.0
+texture_normal = ExtResource("2_mhnvy")
+texture_pressed = ExtResource("3_4ytvr")
+
+[node name="Label" type="Label" parent="exite"]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 22.0
+offset_right = 181.0
+offset_bottom = 77.0
+text = "exit"
+label_settings = SubResource("LabelSettings_con2f")
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="exite" to="." method="_on_exite_pressed"]

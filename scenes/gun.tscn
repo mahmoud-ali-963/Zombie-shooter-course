@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmccm2em46rm4"]
+
+[ext_resource type="Texture2D" uid="uid://b3cqy3bbvnatp" path="res://game assets/art/cannon_base.png" id="1_og67c"]
+[ext_resource type="Texture2D" uid="uid://6dcyy83d3bme" path="res://game assets/art/cannon_head.png" id="2_gp1hk"]
+[ext_resource type="Script" uid="uid://c1qxycuxaeley" path="res://scripts/gun.gd" id="2_qd4js"]
+[ext_resource type="AudioStream" uid="uid://d1gjpbksjhtqc" path="res://game assets/Sounds/shot_1_sfx.wav" id="4_qd4js"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qd4js"]
+radius = 29.0
+height = 120.0
+
+[node name="gun" type="Node2D"]
+position = Vector2(557, 198)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_og67c")
+
+[node name="gun" type="CharacterBody2D" parent="."]
+position = Vector2(-4, 13)
+script = ExtResource("2_qd4js")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="gun"]
+position = Vector2(-6, 37)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_qd4js")
+
+[node name="Sprite2D" type="Sprite2D" parent="gun"]
+texture = ExtResource("2_gp1hk")
+
+[node name="gun_tip" type="Node2D" parent="gun"]
+position = Vector2(54, 4)
+
+[node name="audio_stream_player" type="AudioStreamPlayer" parent="gun"]
+stream = ExtResource("4_qd4js")
